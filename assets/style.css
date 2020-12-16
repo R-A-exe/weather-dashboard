@@ -1,0 +1,107 @@
+.header{
+    height: 80px;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+    color:  rgb(66, 68, 87);
+    padding: 10px;
+    background-color: rgba(55, 106, 182, 0.5);
+}
+
+.sidePane{
+    padding: 15px;
+    background-color: rgb(245, 245, 245);
+}
+
+.container-fluid{
+    padding: 0px;
+}
+
+.row{
+    padding: 0px;
+    margin: 0px;
+}
+
+button{
+    width: 7%;
+    float: left;
+    margin-left: 3%;
+    border: none;
+    background-color: transparent;
+}
+
+button:focus{
+    outline: 0;
+}
+
+button img{
+    width: 35px;
+    height: 35px;
+}
+
+.searchBar{
+    text-align: center;
+    padding: none;
+    margin: none;
+}
+
+input{
+    font-family: 'Cairo', sans-serif;
+    font-size: 16pt;
+    border: none;
+}
+
+#error{
+    text-align: left;
+    font-size: 14pt;
+    color: red;
+}
+
+.recentCities{
+    padding: 15px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 16pt;
+    color: gray;
+   
+}
+
+.recentCityRow{
+    background-color: white;
+    border: solid 1px lightgray;
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+@media only screen and (min-width: 1200px) {
+    .recentCities{
+        display: block;
+        height: 100vh;
+        visibility: visible;
+    }
+    input{
+        width: 90%;
+        height: 50px;
+        float: left;
+    }
+
+    #favourite{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .recentCities{
+        display: none;
+    }
+
+    input{
+        width: 80%;
+        height: 50px;
+        float: left;
+    }
+
+    #favourite{
+        display: inline;
+    }
+  }
+
