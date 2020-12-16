@@ -72,11 +72,26 @@ input{
     margin-bottom: 5px;
 }
 
+@media screen and (max-width: 1200px) {
+    input{
+        width: 80%;
+        height: 50px;
+        float: left;
+    }
+
+    #favourite{
+        display: inline;
+    }
+
+    .recentCities{
+        display: none;
+    }
+  }
+
 @media only screen and (min-width: 1200px) {
     .recentCities{
         display: block;
         height: 100vh;
-        visibility: visible;
     }
     input{
         width: 90%;
@@ -88,20 +103,4 @@ input{
         display: none;
     }
 }
-
-@media only screen and (max-width: 1200px) {
-    .recentCities{
-        display: none;
-    }
-
-    input{
-        width: 80%;
-        height: 50px;
-        float: left;
-    }
-
-    #favourite{
-        display: inline;
-    }
-  }
 

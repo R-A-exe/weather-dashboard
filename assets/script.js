@@ -3,7 +3,7 @@ var cities = new Array();
 
 function loadStorage() {
     var storage = localStorage.getItem("cities");
-    if (storage != "") {
+    if (storage != null && storage != "") {
         cities = JSON.parse(storage);
         cities.forEach(element => {
             loadCity(element);
@@ -27,7 +27,7 @@ $("#favourite").click(function (e) {
 $(this).resize(function () {
     if ($(this).width() > 1200) {
         $(".recentCities").show();
-    } else {
+    }else{
         $(".recentCities").hide();
     }
 });
@@ -38,8 +38,7 @@ $("#search").click(function (e) {
 
     var inputValue = $("input").val().trim();
 
-    if (inputValue != null && inputValue != "") {
-
+    if (inputValue != "") {
         search(inputValue).then(result => {
             if (result) {
 
@@ -63,12 +62,19 @@ $("#search").click(function (e) {
 async function search(value) {
     var result = $.get("https://api.openweathermap.org/data/2.5/forecast?q=" + value + "&appid=166a433c57516f51dfab1f7edaed8413", function (result, status) {
         if (status == "success") {
+            //Add display results code here
+
+
             console.log(result);
+
+
+
+
+
         } else {
             result = false;
         }
     });
-
     return await result
 }
 
