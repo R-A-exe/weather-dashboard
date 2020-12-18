@@ -66,9 +66,11 @@ async function search(value) {
     let result = await $.get("https://api.openweathermap.org/data/2.5/weather?q=" + value + "&units=imperial&appid=166a433c57516f51dfab1f7edaed8413");
     //Display results
     var cityName = result.name + ", " + result.sys.country
-    $("#cityTitle").text(cityName + " - " + moment.unix(result.dt).format("dddd, MMMM Do YYYY"))
+    $("#cityTitle").text(cityName + " - " + moment.unix(result.dt).format("dddd, MMMM Do YYYY"));
+    $("#icon").attr("src","http://openweathermap.org/img/w/" + result.weather[0].icon +".png");
+    console.log(result);
     $("#temperature").text("Temparature: " + result.main.temp + " °F");
-    $("#humidity").text("Humidity speed: " + result.main.humidity + "%");
+    $("#humidity").text("Humidity: " + result.main.humidity + "%");
     $("#wind").text("Wind Speed: " + result.wind.speed + " MPH");
     let uv = await $.get("http://api.openweathermap.org/data/2.5/uvi?lat=" + result.coord.lat + "&lon=" + result.coord.lon + "&appid=166a433c57516f51dfab1f7edaed8413");
     var uvBox = $("<p>");
@@ -83,7 +85,30 @@ async function search(value) {
     }
     uvBox.text(uv.value)
     $("#uv").text("UV Index: ").append(uvBox);
-    console.log(result);
+
+    let forecast = await $.get("https://api.openweathermap.org/data/2.5/forecast/daily?q=" + value + "&units=imperial&appid=166a433c57516f51dfab1f7edaed8413");
+    for(let i = 1; i < 6; i ++){
+        var element = forecast.list[i];
+        var box = $("<div>");
+        var date = $("<h4>");
+        var icon = $("<img>");
+        var temp = $("<p>");
+        var hum = $("<p>");
+        date.text(moment.unix(element.dt).format("YYYY/MM/DD"));
+        icon.attr("src", "http://openweathermap.org/img/w/" + element.weather[0].icon +".png");
+        temp.text("Temp: " + element.temp.day + " °F");
+        hum.text("Humidity: " + element.humidity + "%");
+        box.addClass("day").append(date, icon, temp, hum).appendTo($("#forecast"));
+
+
+        console.log(moment.unix(element.dt).format("YYYY/MM/DD"))
+
+
+        //"http://openweathermap.org/img/w/" + iconcode + ".png";
+
+    };
+    
+    console.log(forecast)
     return cityName
 }
 

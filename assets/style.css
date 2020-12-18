@@ -79,6 +79,10 @@ input{
     border-radius: 5px;
 }
 
+#icon, #cityTitle{
+    display: inline;
+}
+
 .green, .yellow, .orange, .red{
     display: inline;
     padding: 5px;
@@ -100,6 +104,14 @@ input{
 
 .red{
     background-color: red;
+}
+
+.day{
+    background-color: royalblue;
+    color: white;
+    padding: 10px;
+    width: 200px;
+    margin: 5px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -125,6 +137,7 @@ input{
         overflow: scroll;
     }
     input{
+        padding: 0px 10px ;
         width: 90%;
         height: 50px;
         float: left;

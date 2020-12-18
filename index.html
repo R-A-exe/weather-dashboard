@@ -27,7 +27,7 @@
                     <div class="container-fluid">
                         <div class="row searchBar">
                             <form>
-                                <input type="text">
+                                <input type="text" placeholder="(e.g. Toronto, CA)">
                                 <button id="search">
                                     <img src="assets/images/search.png">
                                 </button>
@@ -42,11 +42,17 @@
                 </aside>
                 <div class="col-xl-9 centerContent">
                     <div class="container-fluid currentWeather">
-                        <h2 id="cityTitle"></h2>
+                        <h2 id="cityTitle">Search for a city to begin</h2>
+                        <img id="icon">
                         <p id="temperature"></p>
                         <p id="humidity"></p>
                         <p id="wind"></p>
                         <p id="uv"></p>
+                    </div>
+                    <br>
+                    <div class="container-fluid">
+                        <h2>5-day forecast</h2>
+                        <div id="forecast" class="row justify-content-center"></div>
                     </div>
                 </div>
             </div>
