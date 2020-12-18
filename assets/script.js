@@ -87,6 +87,7 @@ async function search(value) {
     $("#uv").text("UV Index: ").append(uvBox);
 
     let forecast = await $.get("https://api.openweathermap.org/data/2.5/forecast/daily?q=" + value + "&units=imperial&appid=166a433c57516f51dfab1f7edaed8413");
+    $("#forecast").empty();
     for(let i = 1; i < 6; i ++){
         var element = forecast.list[i];
         var box = $("<div>");
@@ -97,18 +98,9 @@ async function search(value) {
         date.text(moment.unix(element.dt).format("YYYY/MM/DD"));
         icon.attr("src", "http://openweathermap.org/img/w/" + element.weather[0].icon +".png");
         temp.text("Temp: " + element.temp.day + " °F");
-        hum.text("Humidity: " + element.humidity + "%");
+        hum.text("Humidity: " + element.humidity + "%"); 
         box.addClass("day").append(date, icon, temp, hum).appendTo($("#forecast"));
-
-
-        console.log(moment.unix(element.dt).format("YYYY/MM/DD"))
-
-
-        //"http://openweathermap.org/img/w/" + iconcode + ".png";
-
     };
-    
-    console.log(forecast)
     return cityName
 }
 
