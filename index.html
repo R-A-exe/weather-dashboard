@@ -23,7 +23,7 @@
     <main>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xl-3 sidePane">
+                <aside class="col-xl-3 sidePane">
                     <div class="container-fluid">
                         <div class="row searchBar">
                             <form>
@@ -39,15 +39,22 @@
                         <div class="row recentCities">
                         </div>
                     </div>
-                </div>
+                </aside>
                 <div class="col-xl-9 centerContent">
-                    results
+                    <div class="container-fluid currentWeather">
+                        <h2 id="cityTitle"></h2>
+                        <p id="temperature"></p>
+                        <p id="humidity"></p>
+                        <p id="wind"></p>
+                        <p id="uv"></p>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="assets/script.js"></script>
 
 </html>
