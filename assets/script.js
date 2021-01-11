@@ -73,11 +73,11 @@ async function search(value) {
     //Display results
     var cityName = result.name + ", " + result.sys.country
     $("#cityTitle").text(cityName + " - " + moment.unix(result.dt).format("dddd, MMMM Do YYYY"));
-    $("#icon").attr("src", "http://openweathermap.org/img/w/" + result.weather[0].icon + ".png");
+    $("#icon").attr("src", "https://openweathermap.org/img/w/" + result.weather[0].icon + ".png");
     $("#temperature").text("Temparature: " + result.main.temp + " °F");
     $("#humidity").text("Humidity: " + result.main.humidity + "%");
     $("#wind").text("Wind Speed: " + result.wind.speed + " MPH");
-    let uv = await $.get("http://api.openweathermap.org/data/2.5/uvi?lat=" + result.coord.lat + "&lon=" + result.coord.lon + "&appid=166a433c57516f51dfab1f7edaed8413");
+    let uv = await $.get("https://api.openweathermap.org/data/2.5/uvi?lat=" + result.coord.lat + "&lon=" + result.coord.lon + "&appid=166a433c57516f51dfab1f7edaed8413");
     var uvBox = $("<p>");
     if (uv.value >= 8) {
         uvBox.addClass("red")
@@ -101,7 +101,7 @@ async function search(value) {
         var temp = $("<p>");
         var hum = $("<p>");
         date.text(moment.unix(element.dt).format("YYYY/MM/DD"));
-        icon.attr("src", "http://openweathermap.org/img/w/" + element.weather[0].icon + ".png");
+        icon.attr("src", "https://openweathermap.org/img/w/" + element.weather[0].icon + ".png");
         temp.text("Temp: " + element.temp.day + " °F");
         hum.text("Humidity: " + element.humidity + "%");
         box.addClass("day").append(date, icon, temp, hum).appendTo($("#forecast"));
